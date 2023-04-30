@@ -2,7 +2,7 @@
 
 The third exercise is mainly about styling, but also about semantic HTML and a new endpoint on the server. As usual, you find detailed information about these parts in the **Tasks** section below.
 
-To set up your working environment for the project, you will have to perform the same steps you already used in exercise 1. First, you **clone** the project and configure it in an IDE, then you **install** the project's dependencies. To do so, run 
+To set up your working environment for the project, you will have to perform the same steps you already used in exercise 1 and 2. First, you **clone** the project and configure it in an IDE, then you **install** the project's dependencies. To do so, run 
 
     npm install
 
@@ -28,7 +28,7 @@ Our starting point for exercise 3 is a solution of exercise 2.
 
 On the server-side, we have our `movie-model.js`, containing our initial movie data. In `server.js` you will find the server startup code defining the three endpoint we have so far, `GET /movies`, `GET /movies/:imdbID`, and `PUT /movies/:imdbID`.
 
-On the client-side, we have two HTML documents, namely `index.html` and `edit.html`. Both refernece their respective JavaScript and CSS files, e.g. `index.html` references `index.js` and `index.css`.
+On the client-side, we have two HTML documents, namely `index.html` and `edit.html`. Both reference their respective JavaScript and CSS files, e.g. `index.html` references `index.js` and `index.css`.
 
 The two CSS files are based on a common CSS file named `base.css`, which they both import.
 
@@ -54,11 +54,11 @@ Here is an overview of all the files:
 
 Here's a first overview of the three tasks, details follow below:
 
-1. Using HTML Landmark elements we restructure our `body` to like this.
+1. Using HTML Landmark elements we restructure our `body` to like this:
 
     ![Basic structure of the page](images/structure.svg "Basic structure of the page")
 
-    Then, using  our knowledge about DOM manipulation and XMLHttpRequests, we dynamically add buttons to the `nav` element. A click on those buttons will load genre specific movies and add them to the `main` element.
+    Then, using our knowledge about DOM manipulation and XMLHttpRequests, we dynamically add buttons to the `nav` element for the movie genres that exist..
 
 2. In this task we are going to use CSS Grid Template Areas to change our layout to look like this:
 
@@ -66,16 +66,20 @@ Here's a first overview of the three tasks, details follow below:
 
     This does not mean that we change the structure in our DOM, we are simply changing the layout using CSS!
 
-3. Finally, lay out the contents of our elements using CSS Flexbox. We will center the content of the `header`, and lay out the contents of `nav`,`footer`, and `main` either horizontally or vertically.
+    Also, we make the genre buttons that we added in task 1 work.
+
+3. Finally, we lay out the contents of our elements using CSS Flexbox. We will center the content of the `header`, and lay out the contents of `nav`,`footer`, and `main` either horizontally or vertically.
 
 ### Checking your implementation
-As usual, to check whether your implementation is working as expected you **run** Cypress end-to-end tests. These tests are the exact same tests used to assess your implementation once you commit it to the GitHub repository, only this time there are ? of them.
+As usual, to check whether your implementation is working as expected you **run** Cypress end-to-end tests. These tests are the exact same tests used to assess your implementation once you commit it to the GitHub repository, only this time there are 11 of them, 2 of which already work, because they test whether the movie data on the server exists and is returned correctly from the `GET \movies`.
 
 To start the tests, run
 
     npm run cypress
 
-As in exercise 2, there are subtasks for the three tasks. Here is the scheme we will use to award the points:
+As always, use the configured test specification file `cypress/e2e/assessment.cy.js` to run the tests.
+
+Here is the scheme of how the subtasks contribute to the tasks 1, 2, and 3:
 
 + 0.1. (Already works) movie-model.js exports the movies object containing at least 3 movies
 + 0.2. (Already works) GET endpoint /movies returns at least three correctly formatted movies
@@ -86,10 +90,8 @@ As in exercise 2, there are subtasks for the three tasks. Here is the scheme we 
 + 2.2. Genre buttons trigger loading and rendering of genre specific movies: **0.5 points**
 + 3.1. 'h1' element is centered inside of 'header' element: **0.25 points**
 + 3.2. Navigation buttons are below each other and have some gap: **0.25 points**
-+ 3.3. Movie 'article' elements are laid out using Flexbox: **0.5 points**
-+ 3.4. The footer is a Flexbox container, its childs are centered vertically
-
-As always, use the configured test specification file `cypress/e2e/assessment.cy.js` to run the tests.
++ 3.3. Movie 'article' elements are laid out using Flexbox: **0.25 points**
++ 3.4. The footer is a Flexbox container, its childs are centered vertically **0.25 points**
 
 ### Task 1: Structure the overview page using semantic HTML, add navigation to genre specific movies
 
