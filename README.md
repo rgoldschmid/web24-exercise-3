@@ -1,6 +1,6 @@
 # Web Technologies - Exercise 3
 
-The third exercise is mainly about styling, but also about semantic HTML and a new endpoint on the server. As usual, you find detailed information about these parts in the **Tasks** section below.
+The third exercise is about styling, but also about semantic HTML and a new endpoint on the server. As usual, you find detailed information about these parts in the **Tasks** section below.
 
 To set up your working environment for the project, you will have to perform the same steps you already used in exercise 1 and 2. First, you **clone** the project and configure it in an IDE, then you **install** the project's dependencies. To do so, run 
 
@@ -54,7 +54,7 @@ Here is an overview of all the files:
 
 Here's a first overview of the three tasks, details follow below:
 
-1. Using HTML landmark elements we restructure our `body` to like this:
+1. Using HTML landmark elements we restructure our `body` to this:
 
     ![Basic structure of the page](images/structure.svg "Basic structure of the page")
 
@@ -71,7 +71,7 @@ Here's a first overview of the three tasks, details follow below:
 3. Finally, we lay out the contents of our elements using CSS Flexbox. We will center the content of the `header`, and lay out the contents of `nav`,`footer`, and `main` either horizontally or vertically.
 
 ### Checking your implementation
-As usual, to check whether your implementation is working as expected you **run** Cypress end-to-end tests. These tests are the exact same tests used to assess your implementation once you commit it to the GitHub repository. This time there are 11 of them, 2 of which already work. These two test whether the movie data on the server exists and is returned correctly from the `GET \movies`, in case you want to change the movie data 😊.
+As usual, to check whether your implementation is working as expected you **run** Cypress end-to-end tests. These tests are the exact same tests used to assess your implementation once you push it to GitHub classroom. This time there are 11 of them, 2 of which already work. These two test whether the movie data on the server exists and is returned correctly from the `GET \movies` - in case you want to change the movie data 😊.
 
 To start the tests, run
 
@@ -116,7 +116,7 @@ After this task and for the time being, the page's elements will be laid out ver
 
 The new endpoint returns the list of genres in your movie collection sorted alphabetically. 
 
-E.g., You have three movies in your model and these have genres
+E.g., you have three movies in your model and these have genres
 * `Action`, `Adventure`, `Drama`,
 * `Comedy`, `Drama`, `Fantasy` and
 * `Drama`, `Romance`.
@@ -125,7 +125,7 @@ Then for these movies your endpoints returns `["Action", "Adventure", "Comedy", 
 
 **1.3. In `index.js`.** Add buttons to the `nav` for all genres. Include one for *all* movies.
 
-In 1.1., you added an unordered list to the `nav` element. When the `XMLHttpRequest` add the end of `index.js` return the genres, add a list item (`li`) containing a button element (`button`) for each genre returned from the server. In addition, add a list item containing a button element for *all* the genres at the beginning of the list.
+In 1.1., you added an unordered list to the `nav` element. When the `XMLHttpRequest` add the end of `index.js` returns the genres, add a list item (`li`) containing a button element (`button`) for each genre returned from the server. In addition, add a list item containing a button element for *all* the genres at the beginning of the list.
 
 For the example above, e.g., the genres, "Action", "Adventure", "Comedy", "Drama", "Fantasy", and "Romance", you would add the following buttons:
 * *All*: will load *all* movies
