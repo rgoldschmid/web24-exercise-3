@@ -73,12 +73,12 @@ window.onload = function () {
     const listElement = document.querySelector("nav>ul");
 
     if (xhr.status === 200) {
-      /* Task 1.3. Add the genre buttons to the navElement and 
+      /* Task 1.3. Add the genre buttons to the listElement and 
          initialize them with a click handler that calls the 
          loadMovies(...) function above. */
       const genres = JSON.parse(xhr.responseText);
 
-      /* When a first buttons exists, we click it to load all movies. */
+      /* When a first button exists, we click it to load all movies. */
       const firstButton = document.querySelector("nav button");
       if (firstButton) {
         firstButton.click();

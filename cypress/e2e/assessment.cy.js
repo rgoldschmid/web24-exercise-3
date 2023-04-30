@@ -313,7 +313,7 @@ describe("Testing Exercise 3", () => {
       })
     })
 
-    it("3.4. The footer is a Flexbox container, its childs are centered vertically", () => {
+    it("3.4. The footer's ul is a Flexbox container, its childs are centered vertically", () => {
       cy.visit("/").then(() => {
         const document = cy.state("document")
         expect(document.styleSheets.length, "Expect document to contain one style sheet").to.eq(1)

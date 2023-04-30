@@ -26,7 +26,7 @@ in your terminal. Navigate to [http://localhost:3000/](http://localhost:3000/) t
 
 Our starting point for exercise 3 is a solution of exercise 2. 
 
-On the server-side, we have our `movie-model.js`, containing our initial movie data. In `server.js` you will find the server startup code defining the three endpoint we have so far, `GET /movies`, `GET /movies/:imdbID`, and `PUT /movies/:imdbID`.
+On the server-side, we have our `movie-model.js`, containing our initial movie data. In `server.js` you will find the server startup code defining the three endpoints we have so far, `GET /movies`, `GET /movies/:imdbID`, and `PUT /movies/:imdbID`.
 
 On the client-side, we have two HTML documents, namely `index.html` and `edit.html`. Both reference their respective JavaScript and CSS files, e.g. `index.html` references `index.js` and `index.css`.
 
@@ -54,11 +54,11 @@ Here is an overview of all the files:
 
 Here's a first overview of the three tasks, details follow below:
 
-1. Using HTML Landmark elements we restructure our `body` to like this:
+1. Using HTML landmark elements we restructure our `body` to like this:
 
     ![Basic structure of the page](images/structure.svg "Basic structure of the page")
 
-    Then, using our knowledge about DOM manipulation and XMLHttpRequests, we dynamically add buttons to the `nav` element for the movie genres that exist.
+    Then, using our knowledge about DOM manipulation, XMLHttpRequests, and server-side endpoints we dynamically add buttons to the `nav` element for the movie genres that exist.
 
 2. In this task we are going to use CSS Grid Template Areas to change our layout to look like this:
 
@@ -66,7 +66,7 @@ Here's a first overview of the three tasks, details follow below:
 
     This does not mean that we change the structure in our DOM, we are simply changing the layout using CSS!
 
-    Also, we make the genre buttons (that we added in task 1) work.
+    Also, we make the genre specific buttons (that we added in task 1) work.
 
 3. Finally, we lay out the contents of our elements using CSS Flexbox. We will center the content of the `header`, and lay out the contents of `nav`,`footer`, and `main` either horizontally or vertically.
 
@@ -91,7 +91,7 @@ Here is the scheme of how the subtasks contribute to the tasks 1, 2, and 3:
 + 3.1. 'h1' element is centered inside of 'header' element: **0.25 points**
 + 3.2. Navigation buttons are below each other and have some gap: **0.25 points**
 + 3.3. Movie 'article' elements are laid out using Flexbox: **0.25 points**
-+ 3.4. The footer is a Flexbox container, its childs are centered vertically **0.25 points**
++ 3.4. The footer's ul is a Flexbox container, its childs are centered vertically: **0.25 points**
 
 ### Task 1: Structure the overview page using semantic HTML, add navigation to genre specific movies
 
@@ -135,7 +135,7 @@ For the example above, e.g., the genres, "Action", "Adventure", "Comedy", "Drama
     ... more buttons for *Comedy*, *Drama*, *Fantasy* ...
 * *Romance*: the last button, will load movies with genre *Romance*
 
-Add click handlers to all buttons that call the function `loadMovies(...)`, which is already implemented in `index.js`. 
+Add click handlers to all buttons that call the function `loadMovies()`, which is already implemented in `index.js`. 
 
 ### Task 2: Applying Grid Template Areas to lay out our overview page, make the genre buttons work
 
@@ -149,6 +149,8 @@ Laying out a container using Grid Template Areas is a three step process, both a
 
     ![Columns and rows](images/grid-columns-and-rows.svg "Columns and rows")
 
+    **As areas use: `h` for `header`, `n` for `nav`, `m` for `main`, and `f` for `footer`**. 
+
 2. Now, assign the areas defined in the container in step 1 to the child elements of our container. These are `header`, `nav`, `main`, and `footer`.
 
     When you finished this task, the look of the page will have already changed:
@@ -157,18 +159,16 @@ Laying out a container using Grid Template Areas is a three step process, both a
 
 3. We want the footer to be visible always, for this to work we have to control how the `main` element behaves once its contents get to big to fit on the viewport. Set the `main` element's `overflow-y` property to `auto` to see the difference. 
 
-Most probably you now see two scrollbars at the right, one for the `main` element, one for the `body`. We will take care of that later.
+You will note that now there are two scrollbars at the right, one for the `main` element, one for the `body`. We will take care of that later.
 
 **2.2. In `index.js` and `server.js`.**
 Review the implementation of `loadMovies(...)` in `index.js` and pass on the genre given by the button click handler to the movie request. 
-* On the client-side, you need set the parameter to the request. See [URLSearchParams:set()](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/set). **Important: Use 'genre' as the name of your parameter!**
+* On the client-side, you need to make sure that the genre-specific click handlers pass the genre to the `loadMovies(...)` function. In it, set the genre parameter to the request. See [URLSearchParams:set()](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/set). **Important: Use 'genre' as the name of your parameter!**
 * On the server-side, in the `GET /movies` endpoint, you use the query parameter sent by the client to filter the movies of the collection. Like the path parameters we used in exercise 2, the query parameters also are available on the request object of the endpoint hit, e.g., a query parameter named **genre** will be available through `req.query.genre`. 
 
-    Make sure that the endpoint returnes *all* movies when no query parameters is present and the genre specific movies when is is present.
+    **Make sure that the endpoint returns *all* movies when no query parameters is present and the *genre specific* movies when a genre is given.**
 
-After this task, all the page content will be laid out vertically, like this:
-
-<img src="images/without-layout.jpg" alt="Page without layouts" width="256">
+After this task, the page already will be fully functional. On to the layout!
 
 ### Task 3: Using Flexbox to lay out elements
 
@@ -185,9 +185,7 @@ Flexbox's default direction is `row`, set it to `column` for this container, in 
 
 We want it to be a Flexbox container as well, in this container we want the children to be wrapped, use `flex-wrap` to do so.
 
-Make the main element a flex container that wraps its children and
-   that has row direction. Add some background image that covers the whole area.
-   Put your background image in the files/images folder.
+Make the main element a flex container that wraps its children and that has row direction. 
 
 **3.4. In index.css.** Last, but not least. The footer's `ul` element.
 
