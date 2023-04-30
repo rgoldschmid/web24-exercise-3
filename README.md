@@ -58,7 +58,7 @@ Here's a first overview of the three tasks, details follow below:
 
     ![Basic structure of the page](images/structure.svg "Basic structure of the page")
 
-    Then, using our knowledge about DOM manipulation and XMLHttpRequests, we dynamically add buttons to the `nav` element for the movie genres that exist..
+    Then, using our knowledge about DOM manipulation and XMLHttpRequests, we dynamically add buttons to the `nav` element for the movie genres that exist.
 
 2. In this task we are going to use CSS Grid Template Areas to change our layout to look like this:
 
@@ -66,12 +66,12 @@ Here's a first overview of the three tasks, details follow below:
 
     This does not mean that we change the structure in our DOM, we are simply changing the layout using CSS!
 
-    Also, we make the genre buttons that we added in task 1 work.
+    Also, we make the genre buttons (that we added in task 1) work.
 
 3. Finally, we lay out the contents of our elements using CSS Flexbox. We will center the content of the `header`, and lay out the contents of `nav`,`footer`, and `main` either horizontally or vertically.
 
 ### Checking your implementation
-As usual, to check whether your implementation is working as expected you **run** Cypress end-to-end tests. These tests are the exact same tests used to assess your implementation once you commit it to the GitHub repository, only this time there are 11 of them, 2 of which already work, because they test whether the movie data on the server exists and is returned correctly from the `GET \movies`.
+As usual, to check whether your implementation is working as expected you **run** Cypress end-to-end tests. These tests are the exact same tests used to assess your implementation once you commit it to the GitHub repository. This time there are 11 of them, 2 of which already work. These two test whether the movie data on the server exists and is returned correctly from the `GET \movies`, in case you want to change the movie data 😊.
 
 To start the tests, run
 
