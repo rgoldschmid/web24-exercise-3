@@ -83,9 +83,9 @@ Here is the scheme of how the subtasks contribute to the tasks 1, 2, and 3:
 
 + 0.1. (Already works) movie-model.js exports the movies object containing at least 3 movies
 + 0.2. (Already works) GET endpoint /movies returns at least three correctly formatted movies
-+ 1.1. 'index.html' has specified semantic structure: **0.3 points**
-+ 1.2. GET endpoint /genres returns a sorted list of genres: **0.3 points**
-+ 1.3. Genres are added to the DOM correctly: **0.4 points**
++ 1.1. 'index.html' has specified semantic structure: **0.33 points**
++ 1.2. GET endpoint /genres returns a sorted list of genres: **0.33 points**
++ 1.3. Genres are added to the DOM correctly: **0.34 points**
 + 2.1. 'body', 'header', 'nav', 'main' and 'footer' are styled with grid template areas: **0.5 points**
 + 2.2. Genre buttons trigger loading and rendering of genre specific movies: **0.5 points**
 + 3.1. 'h1' element is centered inside of 'header' element: **0.25 points**
